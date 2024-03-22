@@ -1,0 +1,9 @@
+.claimimage {
+    background-image: url('../../images/tailwindback.jpg');
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+* {
+    font-family: "Roboto Slab", serif;
+}

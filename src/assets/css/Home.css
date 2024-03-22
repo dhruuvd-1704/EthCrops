@@ -1,0 +1,8 @@
+.homeimage {
+    background-image: url('../../images/tailwindback.jpg');
+    background-repeat: repeat-y;
+    background-size:contain;
+}
+*{
+    font-family: "Roboto Slab", serif;
+}
