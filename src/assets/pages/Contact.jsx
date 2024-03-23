@@ -1,13 +1,23 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import "../css/Incentives.css";
 
 const Contact = () => {
   const form = useRef();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    // Define the template parameters using state values
+    const templateParams = {
+      user_name: name,
+      user_email: email,
+      message: message,
+    };
 
     emailjs
       .sendForm(
@@ -31,20 +41,32 @@ const Contact = () => {
     <>
       <StyledContactContainer>
         <StyledContactForm>
-            <div className="flex justify-center text-xl">FeedBack Form</div>
+          <div className="flex justify-center text-xl">FeedBack Form</div>
           <form ref={form} onSubmit={sendEmail}>
             <label>Name</label>
-            <input type="text" name="user_name" />
+            <input
+              type="text"
+              name="user_name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <label>Email</label>
-            <input type="email" name="user_email" />
+            <input
+              type="email"
+              name="user_email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <label>Message</label>
-            <textarea name="message" />
+            <textarea
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
             <input type="submit" value="Send" />
           </form>
         </StyledContactForm>
       </StyledContactContainer>
-
-      
     </>
   );
 };
@@ -56,7 +78,6 @@ const StyledContactContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 100vh;
-  
 `;
 
 const StyledContactForm = styled.div`

@@ -6,6 +6,7 @@ import Navbar from './assets/components/Navbar';
 import IncentivePage from './assets/pages/Incentives';
 import ContactForm from './assets/pages/Contact';
 import FarmerForm from './assets/pages/Claim';
+import ProfilePage from './assets/pages/Profile';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="/claim" element={<FarmerForm />} />
           <Route path="/incentives" element={<IncentivePage />} />
           <Route path="/contact" element={<ContactForm />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          
         </Routes>
       </div>
     </Router>
